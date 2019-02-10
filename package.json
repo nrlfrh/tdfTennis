@@ -1,0 +1,19 @@
+{
+  "name": "tenniskata",
+  "version": "1.0.0",
+  "description": "kata testing",
+  "main": "tennis.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "save-dev": "^2.0.0"
+  }
+}
