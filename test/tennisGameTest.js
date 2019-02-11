@@ -19,12 +19,12 @@ function scoring(playerOneScore, playerTwoScore){
 
 describe('Player score increases', () =>{
     it('Player one scores', () =>{
-        updateScore(2,0);
+        scoring(2,0);
         tennisGame.playerScore(1);
         expect(tennisGame.playerOneScore).to.equal(3);
     })
     it('Player two scores', () =>{
-        updateScore(0,3);
+        scoring(0,3);
         tennisGame.playerScore(2);
         expect(tennisGame.playerTwoScore).to.equal(4);
     })
@@ -32,57 +32,57 @@ describe('Player score increases', () =>{
 
 describe('Check for deuce', () => {
     it('same score but too low for deuce', () => {
-        updateScore(2, 2);
+        scoring(2, 2);
         expect(tennisGame.deuce()).to.equal(false);
     });
     it('same score and minimum for deuce', () => {
-        updateScore(3, 3);
+        scoring(3, 3);
         expect(tennisGame.deuce()).to.equal(true);
     });
     it('same score and greater than minimum for deuce', () => {
-        updateScore(6, 6);
+        scoring(6, 6);
         expect(tennisGame.deuce()).to.equal(true);
     });
     it('different scores', () => {
-        updateScore(2, 3);
+        scoring(2, 3);
         expect(tennisGame.deuce()).to.equal(false);
     });
 });
 
 describe('End of the match', () => {
     it('player one wins', () => {
-        updateScore(5, 3);
+        scoring(5, 3);
         expect(tennisGame.gameOver()).to.equal(true);        
     });
     it('player two wins', () => {
-        updateScore(2, 4);
+        scoring(2, 4);
         expect(tennisGame.gameOver()).to.equal(true);        
     });
     it('game is not over', () => {
-        updateScore(2, 3);
+        scoring(2, 3);
         expect(tennisGame.gameOver()).to.equal(false);   
     });
 });
 
 describe('Print score string', () => {
     it('0 - 15 is love - fifteen', () => {
-        updateScore(0, 1);
+        scoring(0, 1);
         expect(tennisGame.getScore()).to.equal('Score is love - fifteen');
     });
     it('40 - 30 is forty - thirty', () => {
-        updateScore(3, 2);
+        scoring(3, 2);
         expect(tennisGame.getScore()).to.equal('Score is forty - thirty');
     });
     it('40 - 40 is deuce', () => {
-        updateScore(3, 3);
+        scoring(3, 3);
         expect(tennisGame.getScore()).to.equal('Deuce');
     });
     it('player two has the advantage', () => {
-        updateScore(4, 5);
+        scoring(4, 5);
         expect(tennisGame.getScore()).to.equal('Ashton has the advantage');
     });
     it('player one wins the game', () => {
-        updateScore(4, 2);
+        scoring(4, 2);
         expect(tennisGame.getScore()).to.equal('Amy wins the game');
     });
 });
