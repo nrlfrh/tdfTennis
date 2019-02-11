@@ -21,7 +21,7 @@ class tennis {
 
   // deuce (check if both players score 40)
   deuce() {
-    if (this.playerOneScore === this.playerTwoScore >= 3) {
+    if (this.playerOneScore === this.playerTwoScore && this.playerOneScore>= 3) {
       return true;
     }
     return false;

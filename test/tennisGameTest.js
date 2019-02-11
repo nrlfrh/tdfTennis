@@ -30,6 +30,17 @@ describe('Player score increases', () =>{
     })
 })
 
+describe('Leading player has the highest score', () => {
+    it('player one leads the game', () => {
+        scoring(4, 2);
+        expect(tennisGame.leadScorePlayer()).to.equal('Amy');
+    });
+    it('player two leads the game', () => {
+        scoring(3, 4);
+        expect(tennisGame.leadScorePlayer()).to.equal('Ashton');        
+    });
+});
+
 describe('Check for deuce', () => {
     it('same score but too low for deuce', () => {
         scoring(2, 2);
@@ -61,6 +72,25 @@ describe('End of the match', () => {
     it('game is not over', () => {
         scoring(2, 3);
         expect(tennisGame.gameOver()).to.equal(false);   
+    });
+});
+
+describe('Advantage of one player over the other one', () => {
+    it('same score does not allow advantage', () => {
+        scoring(4, 4);
+        expect(tennisGame.hasAdvantage()).to.equal(false);
+    });
+    it('one player in advantage of one point but the other score is too low', () => {
+        scoring(3, 2);
+        expect(tennisGame.hasAdvantage()).to.equal(false);
+    });
+    it('one player in advantage of one point and the scores are enough for advantage', () => {
+        scoring(4, 3);
+        expect(tennisGame.hasAdvantage()).to.equal(true);
+    });
+    it('one player in advantage of more than one point', () => {
+        scoring(5, 3);
+        expect(tennisGame.hasAdvantage()).to.equal(false);
     });
 });
 
