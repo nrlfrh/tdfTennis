@@ -95,13 +95,13 @@ describe('Advantage of one player over the other one', () => {
 });
 
 describe('Print score string', () => {
-    it('0 - 15 is love - fifteen', () => {
+    it('0 - 15 is Love - Fifteen', () => {
         scoring(0, 1);
-        expect(tennisGame.getScore()).to.equal('Score is love - fifteen');
+        expect(tennisGame.getScore()).to.equal('The score is Love - Fifteen');
     });
-    it('40 - 30 is forty - thirty', () => {
+    it('40 - 30 is Forty - Thirty', () => {
         scoring(3, 2);
-        expect(tennisGame.getScore()).to.equal('Score is forty - thirty');
+        expect(tennisGame.getScore()).to.equal('The score is Forty - Thirty');
     });
     it('40 - 40 is deuce', () => {
         scoring(3, 3);
@@ -109,7 +109,7 @@ describe('Print score string', () => {
     });
     it('player two has the advantage', () => {
         scoring(4, 5);
-        expect(tennisGame.getScore()).to.equal('Ashton has the advantage');
+        expect(tennisGame.getScore()).to.equal('Ashton has an advantage');
     });
     it('player one wins the game', () => {
         scoring(4, 2);

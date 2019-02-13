@@ -70,7 +70,7 @@ class tennis {
     if (this.hasAdvantage()) {
         return `${this.leadScorePlayer()} has an advantage`;
     }
-    return `The score is ${this.getScore[this.playerOneScore]} - ${this.getScore[this.playerTwoScore]}`;
+    return `The score is ${this.scoreNames[this.playerOneScore]} - ${this.scoreNames[this.playerTwoScore]}`;
   }
 }
 
